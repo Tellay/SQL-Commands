@@ -67,3 +67,45 @@ WHERE lower(stu_name) LIKE ("joão %")
 SELECT stu_name, ifnull(stu_email, "no email available")
 FROM student
 ```
+
+## 11 - Display student names and their courses knowing that : 1 - GAD, 2 - GD, 3 - CT, 4 - PH
+
+```sql
+SELECT stu_name,
+	CASE
+	    WHEN stu_cour_id = 1 THEN "GAD"
+        WHEN stu_cour_id = 2 THEN "GD"
+        WHEN stu_cour_id = 3 THEN "CT"
+        WHEN stu_cour_id = 4 THEN "PH"
+    END curso
+FROM student
+```
+
+## 12 - Replace ‘ã’ or ‘Ã’ characters to ‘A’ in student’s name
+
+```sql
+SELECT stu_name, replace(upper(stu_name), "Ã", "A") nome, replace(stu_name, lower("ã"), "A") nome
+FROM student
+```
+
+## 13 - Display the first 3 letters of the student’s name using the substr function
+
+```sql
+SELECT substr(stu_name, 1, 3) nome, stu_name
+FROM student
+```
+
+## 14 - Calculate student’s age. (you will need age and extract functions)
+
+```sql
+SELECT stu_name, stu_bdate, timestampdiff(YEAR, stu_bdate, now()) Age
+FROM student
+```
+
+## 15 - Display the students that are more than 27 years old
+
+```sql
+SELECT stu_name, stu_bdate, timestampdiff(YEAR, stu_bdate, now()) Age
+FROM student
+WHERE timestampdiff(YEAR, stu_bdate, now()) > 27
+```
