@@ -136,9 +136,7 @@ FROM student
 WHERE stu_email LIKE ("%sapo.pt")
 ```
 
-## 19 - Show students with the address attribute
-
-not filled.
+## 19 - Show students with the address attribute not filled.
 
 ```sql
 SELECT *
